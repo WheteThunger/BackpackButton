@@ -1953,7 +1953,7 @@ namespace Oxide.Plugins
             [JsonProperty("Enable dynamic color")]
             protected abstract bool EnableDynamicColor { get; set; }
 
-            [JsonProperty("Dynamic color by fullness percent")]
+            [JsonProperty("Dynamic color by fullness percent", ObjectCreationHandling = ObjectCreationHandling.Replace)]
             protected abstract Dictionary<int, string> ColorByFullPercent { get; set; }
 
             private List<Tuple<int, string>> _sortedColorByFullPercent = new List<Tuple<int, string>>();
