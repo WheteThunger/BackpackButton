@@ -183,4 +183,4 @@ In the config, set `Default button position` to `""`.
 
 #### How do I migrate from the GUI button that the core Backpacks plugin provides?
 
-Revoke the `backpacks.gui` permission from all players/groups, then install and configure this plugin however you like.
+In the Backpacks plugin config, set `GUI Button` -> `Enabled` to `false`, reload Backpacks, then install and configure this plugin however you like.
