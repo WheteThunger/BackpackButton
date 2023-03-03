@@ -168,6 +168,18 @@ namespace Oxide.Plugins
             DestroyUiIfActive(player);
         }
 
+        // Handle player death while sleeping in a safe zone.
+        private void OnEntityKill(BasePlayer player)
+        {
+            if (player.IsNpc)
+                return;
+
+            DestroyUiIfActive(player);
+        }
+
+        // Handle player death by normal means.
+        private void OnEntityDeath(BasePlayer player, HitInfo info) => OnEntityKill(player);
+
         private void OnNpcConversationStart(NPCTalking npcTalking, BasePlayer player, ConversationData conversationData)
         {
             // This delay can be removed in the future if an OnNpcConversationStarted hook is created.
