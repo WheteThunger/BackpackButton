@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.0.0")]
+    [Info("Backpack Button", "WhiteThunder", "1.0.1")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -179,6 +179,10 @@ namespace Oxide.Plugins
 
         // Handle player death by normal means.
         private void OnEntityDeath(BasePlayer player, HitInfo info) => OnEntityKill(player);
+
+        private void OnEntityMounted(ComputerStation station, BasePlayer player) => DestroyUiIfActive(player);
+
+        private void OnEntityDismounted(ComputerStation station, BasePlayer player) => CreateUiIfEnabled(player);
 
         private void OnNpcConversationStart(NPCTalking npcTalking, BasePlayer player, ConversationData conversationData)
         {
