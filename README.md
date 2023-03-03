@@ -26,6 +26,14 @@
 
 - [Backpacks](https://umod.org/plugins/backpacks) v3.11.0 or newer
 
+## Installation
+
+1. Add the plugin to the `oxide/plugins` directory of your Rust server installation.
+3. If you want to disable the button by default (requiring players to enable it for themselves), set `Default button position` to `""` in the config and reload the plugin.
+3. Grant the `backpackbutton.use` permission to users or groups who you want to see the button. For example, run the command `oxide.grant group default backpackbutton.use` to allow all players to see the button.
+
+The Backpacks plugin will automatically disable its built-in GUI button when it detects the Backpack Button plugin.
+
 ## Permissions
 
 - `backpackbutton.use` -- Allows players to see and toggle the backpack button.
@@ -176,11 +184,3 @@ While the Backpacks plugin does have basic button feature, there have many diffe
 #### I really like the features of this plugin; will they ever be added to the core Backpacks plugin so I can have one less plugin installed?
 
 Maybe someday. Keep in mind that there is little practical advantage to having "one less plugin". This type of plugin will almost never need to be maintained or updated.
-
-#### How do I disable the button by default?
-
-In the config, set `Default button position` to `""`.
-
-#### How do I migrate from the GUI button that the core Backpacks plugin provides?
-
-In the Backpacks plugin config, set `GUI Button` -> `Enabled` to `false`, reload Backpacks, then install and configure this plugin however you like.
