@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.0.1")]
+    [Info("Backpack Button", "WhiteThunder", "1.0.2")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -2111,14 +2111,14 @@ namespace Oxide.Plugins
                 {
                     Name = "Left",
                     OffsetX = -263.5f,
-                    Url = "https://i.imgur.com/wLR9Z6V.png",
+                    Url = "https://i.imgur.com/1Tep5Ad.png",
                     ImageSize = 56,
                 },
                 new ButtonPosition
                 {
                     Name = "Right",
                     OffsetX = 185,
-                    Url = "https://i.imgur.com/h1HQEAB.png",
+                    Url = "https://i.imgur.com/wleeQkt.png",
                     ImageSize = 56,
                 },
             };
@@ -2262,7 +2262,23 @@ namespace Oxide.Plugins
                     throw new JsonException();
                 }
 
-                if (MaybeUpdateConfig(_config))
+                var changed = MaybeUpdateConfig(_config);
+
+                foreach (var buttonPosition in _config.ButtonPositions)
+                {
+                    if (buttonPosition.Url == "https://i.imgur.com/wLR9Z6V.png")
+                    {
+                        buttonPosition.Url = "https://i.imgur.com/1Tep5Ad.png";
+                        changed = true;
+                    }
+                    else if (buttonPosition.Url == "https://i.imgur.com/h1HQEAB.png")
+                    {
+                        buttonPosition.Url = "https://i.imgur.com/wleeQkt.png";
+                        changed = true;
+                    }
+                }
+
+                if (changed)
                 {
                     LogWarning("Configuration appears to be outdated; updating and saving");
                     SaveConfig();
