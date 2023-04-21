@@ -65,11 +65,7 @@ namespace Oxide.Plugins
             if (Backpacks == null)
             {
                 LogError($"Backpacks is not loaded. Get it at https://umod.org.");
-                return;
             }
-
-            if (!VerifyBackpacksVersion())
-                return;
 
             HandleBackpacksLoaded();
 
@@ -335,6 +331,9 @@ namespace Oxide.Plugins
 
         private bool VerifyBackpacksVersion()
         {
+            if (Backpacks == null)
+                return false;
+
             if (Backpacks.Version >= RequiredBackpacksVersion)
                 return true;
 
