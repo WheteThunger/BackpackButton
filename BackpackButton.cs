@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.0.2")]
+    [Info("Backpack Button", "WhiteThunder", "1.0.3")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -73,7 +73,7 @@ namespace Oxide.Plugins
 
             HandleBackpacksLoaded();
 
-            timer.Once(900, _data.SaveIfChanged);
+            timer.Every(900, _data.SaveIfChanged);
 
             Subscribe(nameof(OnPlayerSleep));
             Subscribe(nameof(OnPlayerSleepEnded));
