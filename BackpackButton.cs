@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.0.4")]
+    [Info("Backpack Button", "WhiteThunder", "1.1.0")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -248,6 +248,17 @@ namespace Oxide.Plugins
                 return;
             }
 
+            var localizedToggleOption = GetMessage(player.Id, "Toggle");
+            if (StringUtils.EqualsIgnoreCase(positionNameArg, localizedToggleOption))
+            {
+                var enabled = _data.GetEnabledPreference(basePlayer.userID) ?? _config.DefaultButtonPosition != null;
+                _data.SetEnabledPreference(basePlayer.userID, !enabled);
+
+                DestroyUiIfActive(basePlayer);
+                CreateUiIfEnabled(basePlayer);
+                return;
+            }
+
             var localizedOffOption = GetMessage(player.Id, "Off");
             if (StringUtils.EqualsIgnoreCase(positionNameArg, localizedOffOption))
             {
@@ -378,6 +389,8 @@ namespace Oxide.Plugins
                     ? $"<color=#5bf>{localizedButtonName}</color>"
                     : localizedButtonName);
             }
+
+            localizedButtonNameList.Add(GetMessage(player.Id, "Toggle"));
 
             var localizedOffName = GetMessage(player.Id, "Off");
             localizedButtonNameList.Add(currentButtonPosition == null
@@ -2316,6 +2329,7 @@ namespace Oxide.Plugins
             {
                 ["Usage"] = "Usage: <color=#fd4>{0}</color> <position>\n\nPositions: {1}",
                 ["Off"] = "Off",
+                ["Toggle"] = "Toggle",
                 ["No Permission"] = "You don't have permission to use this command.",
             };
 

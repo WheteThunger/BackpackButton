@@ -41,7 +41,7 @@ The Backpacks plugin will automatically disable its built-in GUI button when it 
 ## Commands
 
 - `backpackui` -- Displays help information about how to use the command, as well as the available button positions.
-- `backpackui <position>` (`Left` | `Right` | `Off`) -- Changes your preferred backpack button position. Set to `Off` to hide the backpack button.
+- `backpackui <position>` (`Left` | `Right` | `Toggle` | `Off`) -- Changes your preferred backpack button position. Use `Toggle` to show or hide the button without changing preferred position. Use `Off` to hide the backpack button.
 
 ## Configuration
 
