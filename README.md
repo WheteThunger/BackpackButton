@@ -98,16 +98,16 @@ Default configuration:
       "Name": "Left",
       "Enabled": true,
       "Offset X": -263.5,
-      "URL": "https://i.imgur.com/1Tep5Ad.png",
-      "Skin ID": 0,
+      "URL": "",
+      "Skin ID": 3050420442,
       "Image size": 56.0
     },
     {
       "Name": "Right",
       "Enabled": true,
       "Offset X": 185.0,
-      "URL": "https://i.imgur.com/wleeQkt.png",
-      "Skin ID": 0,
+      "URL": "",
+      "Skin ID": 3050420772,
       "Image size": 56.0
     }
   ]

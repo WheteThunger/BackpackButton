@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.1.0")]
+    [Info("Backpack Button", "WhiteThunder", "1.1.1")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -2123,14 +2123,16 @@ namespace Oxide.Plugins
                 {
                     Name = "Left",
                     OffsetX = -263.5f,
-                    Url = "https://i.imgur.com/1Tep5Ad.png",
+                    Url = "",
+                    SkinId = 3050420442,
                     ImageSize = 56,
                 },
                 new ButtonPosition
                 {
                     Name = "Right",
                     OffsetX = 185,
-                    Url = "https://i.imgur.com/wleeQkt.png",
+                    Url = "",
+                    SkinId = 3050420772,
                     ImageSize = 56,
                 },
             };
@@ -2278,14 +2280,18 @@ namespace Oxide.Plugins
 
                 foreach (var buttonPosition in _config.ButtonPositions)
                 {
-                    if (buttonPosition.Url == "https://i.imgur.com/wLR9Z6V.png")
+                    if (buttonPosition.Url == "https://i.imgur.com/wLR9Z6V.png"
+                        || buttonPosition.Url == "https://i.imgur.com/1Tep5Ad.png")
                     {
-                        buttonPosition.Url = "https://i.imgur.com/1Tep5Ad.png";
+                        buttonPosition.SkinId = 3050420442;
+                        buttonPosition.Url = "";
                         changed = true;
                     }
-                    else if (buttonPosition.Url == "https://i.imgur.com/h1HQEAB.png")
+                    else if (buttonPosition.Url == "https://i.imgur.com/h1HQEAB.png"
+                             || buttonPosition.Url == "https://i.imgur.com/wleeQkt.png")
                     {
-                        buttonPosition.Url = "https://i.imgur.com/wleeQkt.png";
+                        buttonPosition.SkinId = 3050420772;
+                        buttonPosition.Url = "";
                         changed = true;
                     }
                 }
