@@ -17,7 +17,7 @@ using Time = UnityEngine.Time;
 
 namespace Oxide.Plugins
 {
-    [Info("Backpack Button", "WhiteThunder", "1.1.1")]
+    [Info("Backpack Button", "WhiteThunder", "1.1.2")]
     [Description("Adds a button which allows players to open their backpack, with multiple advanced features.")]
     internal class BackpackButton : CovalencePlugin
     {
@@ -731,8 +731,7 @@ namespace Oxide.Plugins
             {
                 if (Net.sv.IsConnected() && entity.net != null)
                 {
-                    var write = Net.sv.StartWrite();
-                    write.PacketID(Message.Type.RPCMessage);
+                    var write = Net.sv.StartWrite(Message.Type.RPCMessage);
                     write.EntityID(entity.net.ID);
                     write.UInt32(StringPool.Get(funcName));
                     write.UInt64(0);
