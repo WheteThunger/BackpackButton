@@ -734,7 +734,6 @@ namespace Oxide.Plugins
                     var write = Net.sv.StartWrite(Message.Type.RPCMessage);
                     write.EntityID(entity.net.ID);
                     write.UInt32(StringPool.Get(funcName));
-                    write.UInt64(0);
                     return write;
                 }
                 return null;
